@@ -86,13 +86,13 @@ class CareerController extends Controller
             ['email' => $validated['email']],
             [
                 'name' => $validated['name'],
-                'phone' => $validated['phone'],
-                'linkedin_url' => $validated['linkedin_url'],
-                'portfolio_url' => $validated['portfolio_url'],
-                'github_url' => $validated['github_url'],
-                'current_company' => $validated['current_company'],
-                'current_role' => $validated['current_role'],
-                'years_of_experience' => $validated['years_of_experience'],
+                'phone' => $validated['phone'] ?? null,
+                'linkedin_url' => $validated['linkedin_url'] ?? null,
+                'portfolio_url' => $validated['portfolio_url'] ?? null,
+                'github_url' => $validated['github_url'] ?? null,
+                'current_company' => $validated['current_company'] ?? null,
+                'current_role' => $validated['current_role'] ?? null,
+                'years_of_experience' => $validated['years_of_experience'] ?? 0,
                 'skills' => array_values($candidateSkills),
             ]
         );
@@ -130,7 +130,7 @@ class CareerController extends Controller
             'stage' => 'applied',
             'resume_path' => $resumePath,
             'resume_text' => $extractedText,
-            'cover_letter' => $validated['cover_letter'],
+            'cover_letter' => $validated['cover_letter'] ?? null,
             'applied_at' => now(),
         ]);
 

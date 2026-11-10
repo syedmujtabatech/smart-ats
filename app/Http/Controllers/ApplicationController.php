@@ -177,9 +177,9 @@ class ApplicationController extends Controller
             'interview_type' => $validated['interview_type'],
             'scheduled_at' => $validated['scheduled_at'],
             'duration_minutes' => $validated['duration_minutes'],
-            'meeting_link' => $validated['meeting_link'],
+            'meeting_link' => $validated['meeting_link'] ?? null,
             'status' => 'scheduled',
-            'feedback' => $validated['feedback'],
+            'feedback' => $validated['feedback'] ?? null,
         ]);
 
         // Auto move to interview stage if in applied/screening
